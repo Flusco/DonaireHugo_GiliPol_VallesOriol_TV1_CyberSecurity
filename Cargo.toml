@@ -4,5 +4,6 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+ed25519-dalek = { version = "2", features = ["rand_core"] }
 rsa = { version = "0.9", features = ["sha2"] }
 rand = "0.8"
