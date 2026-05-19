@@ -1,7 +1,7 @@
 /* 
     Computer Security TV1 - Main Program
     Implemented Exercices: 4.1, 4.3
-    Author: Hugo Donaire
+    Author: Hugo Donaire, Pol Gili, Oriol Vallès
 */
 
 mod exercice_4_3;
