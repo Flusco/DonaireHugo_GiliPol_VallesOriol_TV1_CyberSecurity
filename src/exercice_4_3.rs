@@ -2,7 +2,7 @@
     Computer Security TV1 - Library for Exercice 4.3
     Public Key Encryption Algorithm: RSA
     Digital Signature System: ED25519
-    Author: Hugo Donaire
+    Author: Hugo Donaire, Oriol Vallès, Pol Gili
 */
 
 
@@ -37,10 +37,6 @@ fn rsa_encrypt (pub_key: &RsaPublicKey, text: &[u8]) -> Vec<u8> {
     let mut rng = OsRng;
 
     pub_key.encrypt(&mut rng, Oaep::new::<Sha256>(), text).expect("Failed to encrypt.")
-}
-
-fn rsa_decrypt (priv_key: &RsaPrivateKey, text: &[u8]) -> Vec<u8> {
-    priv_key.decrypt(Oaep::new::<Sha256>(), text).expect("Failed to decrypt.")
 }
 
 fn ed25519_key_generation() -> (SigningKey, VerifyingKey) {
@@ -160,4 +156,3 @@ pub fn mitm_attack_demo(text: &[u8]) {
 
     println!("In conclusion: USE A TRUSTED CHANNEL FOR KEY EXCHANGE!!!!");
 }
-

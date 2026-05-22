@@ -1,9 +1,21 @@
+/* 
+    Computer Security TV1 - Library for Menus
+    Author: Hugo Donaire, Oriol Vallès, Pol Gili
+*/
+
 use std::io;
 use crate::exercice_4_3;
+use crate::exercice_4_1;
 
 fn visuals_main_menu() {
     println!("\n================TV1 CyberSecurity================");
-    println!("1. Exercise 4.3 - Asymmetric encryption and secure communication");
+    println!("1. Exercise 4.1 - Classical Encryption and Custom Cipher ");
+    println!("2. Exercise 4.2 - Symmetric Encryption");
+    println!("3. Exercise 4.3 - Asymmetric Encryption and Secure Communication");
+    println!("4. Exercise 4.4 - Hashing and Integrity");
+    println!("5. Exercise 4.5 - Password Cracking");
+    println!("6. Exercise 4.6 -  Cryptanalysis");
+
     println!("2. Exit");
     println!("Choose an option:");
 }
@@ -14,6 +26,35 @@ fn visuals_exercise_4_3_menu() {
     println!("2. Man-in-the-Middle attack demo");
     println!("3. Back to main menu");
     println!("Choose an option:");
+}
+
+fn visuals_exercise_4_1_menu() {
+    println!("\n================ EXERCISE 4.1 ================");
+    println!("1. Secure communication demo");
+    println!("2. Exit");
+    println!("Choose an option:");
+}
+
+fn exercice_4_1_menu() {
+    loop {
+        visuals_exercise_4_1_menu();
+
+        let mut option = String::new();
+        io::stdin().read_line(&mut option).expect("Failed to read option");
+
+        match option.trim() {
+            "1" => {
+                let text = &read_message_user();
+                exercice_4_1::demo_4_1(text);
+            }
+            "2" => {
+                break;
+            }
+            _ => {
+                println!("Incorrect option: CHoose 1!")
+            }
+        }
+    }
 }
 
 fn exercice_4_3_menu() {
@@ -66,9 +107,12 @@ pub fn main_menu() {
 
         match option.trim() {
             "1" => {
+                exercice_4_1_menu();
+            }
+            "3" => {
                 exercice_4_3_menu();
             }
-            "2" => {
+            "4" => {
                 println!("Closing program...");
                 break;
             }
@@ -88,7 +132,7 @@ fn read_message_user () -> String {
     let message = message.trim().to_string();
 
     if message.is_empty() {
-        String::from("Default text will be used.")
+        String::from("Hello Eric, this is default text.")
     } else {
         message
     }

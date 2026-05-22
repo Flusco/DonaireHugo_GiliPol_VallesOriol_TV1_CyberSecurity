@@ -6,6 +6,7 @@
 
 mod menu;
 mod exercice_4_3;
+mod exercice_4_1;
 
 fn main() {
     menu::main_menu();
