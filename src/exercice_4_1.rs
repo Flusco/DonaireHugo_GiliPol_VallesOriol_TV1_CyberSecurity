@@ -43,7 +43,7 @@ fn columnar_decypher (k1: &str, cipher_text: &str) -> String {
     assert!(cols > 0, "A key needs to be introduced.");
 
     let chars: Vec<char> = cipher_text.chars().collect();
-    let rows = chars.len() / cols;
+    let rows = chars.len().div_ceil(cols);
 
     let order = col_alph_order(k1);
     let mut grid = vec!['X'; rows * cols];
