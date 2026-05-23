@@ -9,6 +9,7 @@ dependencies = [
  "ed25519-dalek",
  "rand",
  "rsa",
+ "sha2",
 ]
 
 [[package]]
