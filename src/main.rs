@@ -6,6 +6,7 @@
 
 mod menu;
 mod exercice_4_3;
+mod exercice_4_2;
 mod exercice_4_1;
 mod exercice_4_4;
 mod exercice_4_6;

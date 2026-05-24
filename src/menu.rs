@@ -5,6 +5,7 @@
 
 use std::io;
 use crate::exercice_4_3;
+use crate::exercice_4_2;
 use crate::exercice_4_1;
 use crate::exercice_4_4;
 use crate::exercice_4_6;
@@ -18,6 +19,13 @@ fn visuals_main_menu() {
     println!("5. Exercise 4.5 - Password Cracking");
     println!("6. Exercise 4.6 - Cryptanalysis");
     println!("7. Exit");
+    println!("Choose an option:");
+}
+
+fn visuals_exercise_4_2_menu() {
+    println!("\n================ EXERCISE 4.2 ================");
+    println!("1. Run symmetric encryption demo");
+    println!("2. Back to main menu");
     println!("Choose an option:");
 }
 
@@ -70,6 +78,27 @@ fn exercice_4_1_menu() {
             }
             _ => {
                 println!("Incorrect option: Choose 1 or 2")
+            }
+        }
+    }
+}
+
+fn exercice_4_2_menu() {
+    loop {
+        visuals_exercise_4_2_menu();
+
+        let mut option = String::new();
+        io::stdin().read_line(&mut option).expect("Failed to read option");
+
+        match option.trim() {
+            "1" => {
+                exercice_4_2::encription();
+            }
+            "2" => {
+                break;
+            }
+            _ => {
+                println!("Incorrect option, choose: 1 or 2")
             }
         }
     }
@@ -178,6 +207,9 @@ pub fn main_menu() {
             "1" => {
                 exercice_4_1_menu();
             }
+            "2" => {
+                exercice_4_2_menu();
+            }
             "3" => {
                 exercice_4_3_menu();
             }
@@ -192,7 +224,7 @@ pub fn main_menu() {
                 break;
             }
             _ => {
-                println!("Incorrect option, choose: 1, 3, 4, 6 or 7");
+                println!("Incorrect option, choose: 1, 2, 3, 4, 6 or 7");
             }
         }
     }
